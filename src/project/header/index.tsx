@@ -1,0 +1,19 @@
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import style  '../header/index.module.css'
+
+
+const Header = () => {
+  return (
+    <div className={style.header}>
+      <ul>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/components'}>Components</NavLink></li>
+        <li><NavLink to={'/blocks'}>Blocks</NavLink></li>
+        <li><NavLink to={'/sections'}>Sections</NavLink></li>
+      </ul>
+    </div>
+  )
+}
+
+export default Header
