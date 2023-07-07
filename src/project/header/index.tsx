@@ -15,11 +15,11 @@ const menuItems = [
 
 const Header = () => {
   return (
-    <LHeader bg='#F6EFE8'>
+    <LHeader bg={'#F6EFE8'}>
       <Container>
-        <Row pt={15} pb={15}>
+        <Row pt={'15px'} pb={'15px'}>
           <Box display={'flex'}>
-          <ImageAvatar shadow shadowColor={'pink'} size={70} mr={20}>
+          <ImageAvatar shadow shadowColor={'pink'} size={'70px'} mr={'20px'}>
             <Image src="/headerIcon.jpg" alt="logo" />
           </ImageAvatar>
           <Menu display={'flex'} >
