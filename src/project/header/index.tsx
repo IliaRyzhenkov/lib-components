@@ -1,10 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Box, Container, Row } from '../../my-lib/layout'
-import { Button } from '../../my-lib/components/button'
-import { Image, ImageAvatar } from '../../my-lib/components/image'
-import { Menu, MenuItem } from '../../my-lib/blocks/menu'
-import { LHeader } from '../../my-lib/sections/header'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import {Box, Col, Container, Row} from '../../my-lib/layout';
+import { Avatar, Image } from '../../my-lib/components/image';
+import { Menu, MenuItem } from '../../my-lib/blocks/menu';
+import { LHeader } from '../../my-lib/sections/header';
+import { Button } from '../../my-lib/components/buttons';
+
 
 const menuItems = [
   { link: '/', name: 'Home' },
@@ -12,24 +13,23 @@ const menuItems = [
   { link: '/blocks', name: 'Blocks' },
   { link: '/sections', name: 'Sections' },
 ]
-
 const Header = () => {
   return (
-    <LHeader bg={'#F6EFE8'}>
+    <LHeader bg='#F6EFE8'>
       <Container>
-        <Row pt={'15px'} pb={'15px'}>
+        <Row pt={'15px'} pb={'15px'} alignItems={'center'}>
           <Box display={'flex'}>
-          <ImageAvatar shadow shadowColor={'pink'} size={'70px'} mr={'20px'}>
-            <Image src="/headerIcon.jpg" alt="logo" />
-          </ImageAvatar>
-          <Menu display={'flex'} >
-            {
-              menuItems.map((e) => (
-                <MenuItem key={e.link} fontSize={'18px'} color={'black'} letterSpacing={'1px'}><NavLink to={e.link}>{e.name}</NavLink></MenuItem>
-              ))
-            }
-
-          </Menu>
+            <Avatar shadow shadowColor={'pink'} size={'70px'} mr={'20px'}>
+              <Image src="/logo.png" alt="logo" />
+            </Avatar>
+            <Menu display={'flex'}>
+              {
+                menuItems.map((e) => (
+                  <MenuItem key={e.link} fs={'18px'} color={'black'} ls={'1px'} ml={'20px'}><NavLink to={e.link}>{e.name}</NavLink></MenuItem>
+                ))
+              }
+            </Menu>
+              
           </Box>
           <Button>Read More</Button>
         </Row>
@@ -37,5 +37,4 @@ const Header = () => {
     </LHeader>
   )
 }
-
 export default Header

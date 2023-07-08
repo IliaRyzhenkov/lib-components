@@ -1,38 +1,46 @@
 import styled from 'styled-components'
-import { IGlobal } from '../moduls/global'
+import { IGlobal } from '../models/global'
 
 
-interface IMenu {
-  display?: 'flex' | 'block',
+interface IMenu extends IGlobal{
+  display?: 'flex'|'block'|'contents'|'flow-root'|'grid'|'inline'|'inline-block'|'inline-flex'
 }
 
-interface IMenuItem extends IGlobal {
+interface IMenuItem extends IGlobal{
   textTransform?: 'uppercase' | 'lowercase' | 'capitalize',
-  fontSize?: string,
-  letterSpacing?: string,
-
-
+  fs?: string,
+  ls?: string,
 }
 
 export const Menu = styled.ul<IMenu>`
-display: ${(props) => props.display ?? 'flex'};
-align-items: center;
+ display: ${(props) => props.display ?? 'flex'};
+ align-items: center;
+ background: ${(p) => p.bg};
+ padding-top: ${(p) => p.pt};
+ padding-bottom: ${(p) => p.pb};
+ padding-left: ${(p) => p.pl};
+ padding-right: ${(p) => p.pr};
+ margin-top: ${(p) => p.mt};
+ margin-bottom: ${(p) => p.mb};
+ margin-left: ${(p) => p.ml};
+ margin-right: ${(p) => p.mr};
 `
-
 export const MenuItem = styled.li<IMenuItem>`
-margin:
-${(p) => p.mt ?? 0},
-${(p) => p.mr ?? '20px'},
-${(p) => p.mb ?? 0},
-${(p) => p.ml ?? 0},
-;
-font-size: ${(p) => p.fontSize};
-letter-spacing: ${(p) => p.letterSpacing};
-text-transform: ${(p) => p.textTransform};
-
-a{
-  color:${(p) => p.color};
+ font-size: ${(p) => p.fs};
+ letter-spacing: ${(p) => p.ls};
+ text-transform: ${(p) => p.textTransform};
+ background: ${(p) => p.bg};
+ padding-top: ${(p) => p.pt};
+ padding-bottom: ${(p) => p.pb};
+ padding-left: ${(p) => p.pl};
+ padding-right: ${(p) => p.pr};
+ margin-top: ${(p) => p.mt};
+ margin-bottom: ${(p) => p.mb};
+ margin-left: ${(p) => p.ml};
+ margin-right: ${(p) => p.mr};
+ a{
+  color: ${(p) => p.color};
   text-decoration: none;
   text-transform: ${(p) => p.textTransform};
-}
+ }
 `
