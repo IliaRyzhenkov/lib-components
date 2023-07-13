@@ -4,7 +4,8 @@ import { IGlobal } from '../models/global'
 export interface IRow extends IGlobal {
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
   justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignItems?: 'center'| 'flex-end' | 'flex-start' | 'left' | 'right'
+  alignItems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
+  flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset'
 }
 export interface IBox extends IRow {
   shadow?: string,
@@ -28,6 +29,7 @@ export interface ICol extends IBox {
 
 export const Row = styled.div<IRow>`
   display: ${(p) => p.display ?? 'flex'};
+  flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
   justify-content: ${(p) => p.justifyContent ?? 'space-between'};
   align-items: ${(p) => p.alignItems};
   color: ${(p) => p.color};
@@ -40,10 +42,12 @@ export const Row = styled.div<IRow>`
   margin-bottom: ${(p) => p.mb};
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
-`
+  ${(p) => p.sx};
+  `
 
 export const Container = styled.div<IContainer>`
   max-width: ${(p) => p.fullWidth ? '100%' : '1300px'};
+  flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
   flex: ${(p) => p.flex};
   width: 100%;
   margin: auto;
@@ -65,12 +69,14 @@ export const Container = styled.div<IContainer>`
   margin-bottom: ${(p) => p.mb};
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
+  ${(p) => p.sx};
 `
 
 export const Col = styled.div<ICol>`
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
 align-items: ${(p) => p.alignItems ?? 'center'};
+flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
 box-shadow:${(p) => p.shadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -79,7 +85,7 @@ flex-basis: ${(p) => p.size === 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
     p.size === 2 ? `calc(16.6% - ${p.spacing ?? '15px'})` :
       p.size === 3 ? `calc(25% - ${p.spacing ?? '15px'})` :
         p.size === 4 ? `calc(33.3% - ${p.spacing ?? '15px'})` :
-          p.size ===5 ? `calc(41.6% - ${p.spacing ?? '15px'})` :
+          p.size === 5 ? `calc(41.6% - ${p.spacing ?? '15px'})` :
             p.size === 6 ? `calc(50% - ${p.spacing ?? '15px'})` :
               p.size === 7 ? `calc(58.3% - ${p.spacing ?? '15px'})` :
                 p.size === 8 ? `calc(66.6% - ${p.spacing ?? '15px'})` :
@@ -100,12 +106,14 @@ flex-basis: ${(p) => p.size === 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
+ ${(p) => p.sx};
 `
 
 export const Box = styled.div<IBox>`
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
 align-items: ${(p) => p.alignItems ?? 'center'};
+flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
 box-shadow:${(p) => p.shadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -121,12 +129,15 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
+${(p) => p.sx};
 `
+
 export const Section = styled.section<ISection>`
 flex: ${(p) => p.flex};
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
 align-items: ${(p) => p.alignItems ?? 'center'};
+flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
 box-shadow:${(p) => p.shadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -142,4 +153,5 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
+${(p) => p.sx};
 `
