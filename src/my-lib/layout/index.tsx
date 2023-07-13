@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { IGlobal } from '../models/global'
 
 export interface IRow extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignItems?: 'center' | 'flex-end' | 'flex-start'
+  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
+  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
+  alignItems?: 'center'| 'flex-end' | 'flex-start' | 'left' | 'right'
 }
 export interface IBox extends IRow {
   shadow?: string,
@@ -75,18 +75,18 @@ box-shadow:${(p) => p.shadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 flex-wrap: wrap;
-flex-basis: ${(p) => p.size == 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
-    p.size == 2 ? `calc(16.6% - ${p.spacing ?? '15px'})` :
-      p.size == 3 ? `calc(25% - ${p.spacing ?? '15px'})` :
-        p.size == 4 ? `calc(33.3% - ${p.spacing ?? '15px'})` :
-          p.size == 5 ? `calc(41.6% - ${p.spacing ?? '15px'})` :
-            p.size == 6 ? `calc(50% - ${p.spacing ?? '15px'})` :
-              p.size == 7 ? `calc(58.3% - ${p.spacing ?? '15px'})` :
-                p.size == 8 ? `calc(66.6% - ${p.spacing ?? '15px'})` :
-                  p.size == 9 ? `calc(75% - ${p.spacing ?? '15px'})` :
-                    p.size == 10 ? `calc(83.3% - ${p.spacing ?? '15px'})` :
-                      p.size == 11 ? `calc(91.6% - ${p.spacing ?? '15px'})` :
-                        p.size == 12 ? `calc(100% - ${p.spacing ?? '15px'})` :
+flex-basis: ${(p) => p.size === 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
+    p.size === 2 ? `calc(16.6% - ${p.spacing ?? '15px'})` :
+      p.size === 3 ? `calc(25% - ${p.spacing ?? '15px'})` :
+        p.size === 4 ? `calc(33.3% - ${p.spacing ?? '15px'})` :
+          p.size ===5 ? `calc(41.6% - ${p.spacing ?? '15px'})` :
+            p.size === 6 ? `calc(50% - ${p.spacing ?? '15px'})` :
+              p.size === 7 ? `calc(58.3% - ${p.spacing ?? '15px'})` :
+                p.size === 8 ? `calc(66.6% - ${p.spacing ?? '15px'})` :
+                  p.size === 9 ? `calc(75% - ${p.spacing ?? '15px'})` :
+                    p.size === 10 ? `calc(83.3% - ${p.spacing ?? '15px'})` :
+                      p.size === 11 ? `calc(91.6% - ${p.spacing ?? '15px'})` :
+                        p.size === 12 ? `calc(100% - ${p.spacing ?? '15px'})` :
                           'calc(100%)'
   };
  color: ${(p) => p.color};

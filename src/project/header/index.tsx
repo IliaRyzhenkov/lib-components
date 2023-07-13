@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {Box, Col, Container, Row} from '../../my-lib/layout';
+import {Box, Container, Row} from '../../my-lib/layout';
 import { Avatar, Image } from '../../my-lib/components/image';
 import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
@@ -20,7 +20,7 @@ const Header = () => {
         <Row pt={'15px'} pb={'15px'} alignItems={'center'}>
           <Box display={'flex'}>
             <Avatar shadow shadowColor={'pink'} size={'70px'} mr={'20px'}>
-              <Image src="/logo.png" alt="logo" />
+              <Image src="/headerIcon.jpg" alt="logo" />
             </Avatar>
             <Menu display={'flex'}>
               {
