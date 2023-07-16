@@ -3,11 +3,12 @@ import { IGlobal } from '../models/global'
 import { Avatar } from '../components/image'
 
 
+
 interface IPopupContent extends IGlobal {
-  open: boolean
+  open?: boolean
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignItems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
+  justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
+  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
   flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset'
   w?: string
   h?: string
@@ -18,6 +19,11 @@ interface IPopupContent extends IGlobal {
 interface IPopupEclipse {
   eclipseColor?: string
   eclipseOpacity?: string
+}
+
+export interface IPopup extends IPopupContent, IPopupEclipse {
+  children: React.ReactNode
+  openPopup?: any
 }
 
 
@@ -32,8 +38,8 @@ export const PopupContent = styled.div<IPopupContent>`
   max-height: ${(p) => p.mh};
   display: ${(p) => p.display};
   flex-wrap: ${(p) => p.flexWrap};
-  justify-content: ${(p) => p.justifyContent};
-  align-items: ${(p) => p.alignItems};
+  justify-content: ${(p) => p.justifycontent};
+  align-items: ${(p) => p.alignitems};
   color: ${(p) => p.color};
   background: ${(p) => p.bg ?? 'white'};
   padding: ${(p) => p.p};
@@ -61,17 +67,22 @@ export const PopupEclipse = styled.div<IPopupEclipse>`
 
 `
 
-export interface IPopup extends IPopupContent, IPopupEclipse  { 
-  children: React.ReactNode
-}
+
 
 
 export const Popup = (props: IPopup) => {
-  return(
-    <>  
-    <PopupEclipse eclipseColor = {props.eclipseColor} eclipseOpacity = {props.eclipseOpacity}></PopupEclipse>
-    <PopupContent {...props}></PopupContent>
-    <Avatar sx={'position:fixed; right:20px; top:20px:'} shadow bg='white' size='30px'>+</Avatar>
-    </>
+  return (
+    props.open ?
+      <>
+        <PopupEclipse onClick={() => props.openPopup(false)} eclipseColor={props.eclipseColor} eclipseOpacity={props.eclipseOpacity}></PopupEclipse>
+        <PopupContent {...props}></PopupContent>
+        <Avatar onClick={() => props.openPopup(false)}
+          sx={'position:fixed; right:30px; top:30px; transform:rotate(45deg); cursor:pointer'}
+          bg='white' fs='40px' size='50px'>
+          +
+        </Avatar>
+      </>
+      :
+      <></>
   )
 }
