@@ -24,14 +24,14 @@ interface ICardInner extends IGlobal {
 }
 
 export const Card = styled.article<ICard>`
+height: 100%;
 display: ${(p) => p.display ?? 'flex'};
 flex-direction: ${(p) => p.flexDirection ?? 'column'};
 justify-content:${(p) => p.justifycontent ?? 'space-between'};
-height: 100%;
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
+box-shadow: ${(p) => p.shadow ? `0px 0px 7px 3px ${p.shadowcolor ?? 'grey'}` : false};
 color: ${(p) => p.color};
-box-shadow: ${(p) => p.shadow ? `0px 0px 15px 3px ${p.shadowcolor ?? 'grey'}` : false};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
