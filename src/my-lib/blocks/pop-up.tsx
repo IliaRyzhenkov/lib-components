@@ -5,7 +5,6 @@ import { Avatar } from '../components/image'
 
 
 interface IPopupContent extends IGlobal {
-  open?: boolean
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
   justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
   alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
@@ -22,6 +21,7 @@ interface IPopupEclipse {
 }
 
 export interface IPopup extends IPopupContent, IPopupEclipse {
+  open?: boolean
   children: React.ReactNode
   openPopup?: any
 }

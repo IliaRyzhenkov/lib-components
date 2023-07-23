@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Box, Container } from '../../../my-lib/layout';
 import { Form, Input, Textarea } from '../../../my-lib/components/form';
 import { Button } from '../../../my-lib/components/buttons';
@@ -13,14 +13,8 @@ const Components = () => {
           <Input type='text' w={'49%'} placeholder='Enter Lastname' />
         </Box>
         <Input type='email' placeholder='Enter Email' />
-      <Textarea placeholder='Message' h='150px'/>
-      <Button type='submit' p='10px 70px' mt='20px' hover='reverseBorder'>Send</Button>
-      <select id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
+        <Textarea placeholder='Message' h='150px' />
+        <Button type='submit' p='10px 70px' mt='20px' hover='reverseBorder'>Send</Button>
       </Form>
     </Container>
   )
