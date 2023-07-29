@@ -6,7 +6,8 @@ interface IAvatar extends IGlobal {
   shadow?: string,
   shadowcolor?: string,
   size?: string,
-  fs?: string
+  fs?: string,
+  shadowHover?: string
 }
 
 interface IImage {
@@ -18,6 +19,8 @@ interface IImage {
 }
 
 export const Avatar = styled.div<IAvatar>`
+transition: all 0.3s ease-in-out;
+cursor: pointer;
  width: ${(p) => p.size ?? 50};
  height: ${(p) => p.size ?? 50};
  border-radius: ${(p) => p.br ?? '50%'};
@@ -27,6 +30,7 @@ export const Avatar = styled.div<IAvatar>`
  align-items: center;
  justify-content: center;
  box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? 'grey'}` : false};
+ box-shadow: ${(p) => p.shadowHover ? `0px 0px 0px 4px ${p.shadowcolor ?? 'pink'}` : false};
  color: ${(p) => p.color};
  background: ${(p) => p.bg};
  padding-top: ${(p) => p.pt};
@@ -37,7 +41,23 @@ export const Avatar = styled.div<IAvatar>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
-${(p) => p.sx};`
+${(p) => p.sx};
+&:hover{
+ /* transition: all 0.3s ease-in-out;
+ box-shadow: ${(p) => p.shadowHover ? `0px 0px 0px 8px ${p.shadowcolor ?? 'pink'}` : false}; */
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count:3;
+@keyframes example {
+  0%{box-shadow: 0px 0px 0px 4px pink;}
+  25%{background:yellowgreen;}
+  50%{margin-top:0px;}
+  70%{margin-top:-20px;}
+  90%{margin-top:0px;}
+  100%{opacity:0;}
+}
+}
+`
 
 export const Image = styled.img<IImage>`
  width: ${(p) => p.w ?? '100%'};

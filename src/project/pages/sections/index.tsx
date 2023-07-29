@@ -10,7 +10,7 @@ const Sections = () => {
       content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fuga aspernatur atque impedit eligendi magni odio quidem ab odit earum.'
     },
     {
-      tab: 'tab 1',
+      tab: 'tab 1 ',
       content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eoodio quidem ab odit earum.'
     },
     {
@@ -23,31 +23,29 @@ const Sections = () => {
     },
   ]
   return (
-    <TabsWrapper mw='600px' m='auto' bg='orange' p='20px' mt='35px' color='white' shadow='true'>
-      <Tabs p='10px' sx='border-bottom:2px solid white; text-transform: uppercase' mb='20px'>
+    <TabsWrapper mw='600px' m='55px auto' >
+      <Tabs fullW='true'>
         {
-          dataTabs.map((tab, index) =>(
-          index === tabIndex 
-          ?
-
-          
-            <Tab className='active'
-              onClick={() => setTabIndex(index)}
-              key={index}
-            >{tab.tab}</Tab>
-            :
-            <Tab 
-            onClick={() => setTabIndex(index)}
-            key={index}
-          >{tab.tab}</Tab>
-            ))
+          dataTabs.map((tab, index) => (
+            index === tabIndex
+              ?
+              <Tab active='default'tabs='classic'  mb='-1px'
+                onClick={() => setTabIndex(index)}
+                key={index}
+              >{tab.tab}</Tab>
+              :
+              <Tab tabs='underline'
+                onClick={() => setTabIndex(index)}
+                key={index}
+              >{tab.tab}</Tab>
+          ))
         }
       </Tabs>
 
       {
         dataTabs.map((content, index) => (
           index === tabIndex ?
-            <TabsContent p='20px' index={index} key={index}>
+            <TabsContent bg='white' border='1px solid' p='20px' key={index}>
               {content.content}
             </TabsContent> : false
         ))

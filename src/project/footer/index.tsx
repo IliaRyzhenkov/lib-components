@@ -11,7 +11,7 @@ const Footer = () => {
    <Container>
     <Row >
       <Col size={2}>
-       <Avatar shadow={'true'} size={'70px'}>UI</Avatar> 
+       <Avatar shadowHover='true' size={'70px'} sx='border:2px solid white'>UI</Avatar> 
       </Col>
       <Col size={4}>
       <Menu display={'block'}>

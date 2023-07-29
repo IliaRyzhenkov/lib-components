@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Section flex={'1'}>
+      <Section flex={'1'} bg='#fffbf6'>
         <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/sections' element={<Sections />} />
