@@ -7,7 +7,7 @@ import { BtnLink, Button } from '../../../my-lib/components/buttons';
 import { Popup } from '../../../my-lib/blocks/pop-up';
 
 
-const Blocks = () => {
+const BlocksPopUp = () => {
   const [openPopup, setOpenPopup] = useState(false)
   const [openAllow, setOpenAllow] = useState(false)
 
@@ -59,4 +59,4 @@ const Blocks = () => {
     </Container>
   )
 }
-export default Blocks
+export default BlocksPopUp

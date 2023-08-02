@@ -7,8 +7,10 @@ interface IHeader extends IBox {
 
 export const LHeader = styled.header<IHeader>`
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-align-items: ${(p) => p.alignitems ?? 'center'};
+justify-content: ${(p) => p.justifycontent};
+align-items: ${(p) => p.alignitems};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};

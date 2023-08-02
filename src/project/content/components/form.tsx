@@ -4,11 +4,11 @@ import { Form, Input, Textarea } from '../../../my-lib/components/form';
 import { Button } from '../../../my-lib/components/buttons';
 
 
-const Components = () => {
+const ComponentsForm = () => {
   return (
     <Container mt='35px'>
       <Form maxW='600px' m='auto' shadow='true' br='6px' p='30px 30px'>
-        <Box display='flex'>
+        <Box display='flex' justifycontent='space-between'>
           <Input type='text' w={'49%'} placeholder='Enter Name' />
           <Input type='text' w={'49%'} placeholder='Enter Lastname' />
         </Box>
@@ -19,4 +19,4 @@ const Components = () => {
     </Container>
   )
 }
-export default Components
+export default ComponentsForm

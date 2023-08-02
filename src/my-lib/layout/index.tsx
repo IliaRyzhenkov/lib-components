@@ -1,14 +1,10 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal } from '../models/global'
 
-export interface IRow extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
-  flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset'
+export interface IRow extends IGlobal, IDisplay {
+
 }
-export interface IBox extends IRow {
-
+export interface IBox extends IGlobal, IDisplay {
   boxShadow?: string,
   br?: string,
   border?: string
@@ -30,9 +26,10 @@ export interface ICol extends IBox {
 
 export const Row = styled.div<IRow>`
   display: ${(p) => p.display ?? 'flex'};
-  flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
   justify-content: ${(p) => p.justifycontent ?? 'space-between'};
   align-items: ${(p) => p.alignitems};
+  flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
+  flex-direction: ${(p) => p.flexDirection};
   color: ${(p) => p.color};
   background: ${(p) => p.bg};
   padding: ${(p) => p.p};
@@ -55,8 +52,9 @@ export const Container = styled.div<IContainer>`
   width: 100%;
   margin: auto;
   display: ${(p) => p.display ?? 'block'};
-  justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-  align-items: ${(p) => p.alignitems ?? 'center'};
+  justify-content: ${(p) => p.justifycontent};
+  align-items: ${(p) => p.alignitems};
+  flex-direction: ${(p) => p.flexDirection};
   box-shadow:${(p) => p.boxShadow};
   border-radius: ${(p) => p.br};
   border:${(p) => p.border};
@@ -77,9 +75,10 @@ export const Container = styled.div<IContainer>`
 
 export const Col = styled.div<ICol>`
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-align-items: ${(p) => p.alignitems ?? 'center'};
-flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
+justify-content: ${(p) => p.justifycontent};
+align-items: ${(p) => p.alignitems};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -114,9 +113,10 @@ flex-basis: ${(p) => p.size === 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
 
 export const Box = styled.div<IBox>`
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-align-items: ${(p) => p.alignitems ?? 'center'};
+justify-content: ${(p) => p.justifycontent};
+align-items: ${(p) => p.alignitems };
 flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
+flex-direction: ${(p) => p.flexDirection};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -138,9 +138,10 @@ ${(p) => p.sx};
 export const Section = styled.section<ISection>`
 flex: ${(p) => p.flex};
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-align-items: ${(p) => p.alignitems ?? 'center'};
+justify-content: ${(p) => p.justifycontent};
+align-items: ${(p) => p.alignitems};
 flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
+flex-direction: ${(p) => p.flexDirection};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};

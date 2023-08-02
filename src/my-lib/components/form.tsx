@@ -1,42 +1,43 @@
 import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { IGlobal } from '../models/global';
+import { IDisplay, IGlobal, IProportions } from '../models/global';
 
 
-interface IInput extends InputHTMLAttributes<HTMLInputElement>, IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+interface IInput extends InputHTMLAttributes<HTMLInputElement>, IGlobal, IDisplay, IProportions {
   br?: string
   border?: string
   fs?: string
   ls?: string
   fw?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
-  w?: string
+
   placeholderColor?: string
 }
 
 interface ITExtarea extends IInput{
-  h?: string
-  minH?: string
+
 }
 
-interface IForm extends IGlobal{
+interface IForm extends IGlobal, IDisplay, IProportions{
   shadow?: string,
   shadowcolor?: string,
   br?: string,
   border?: string
-  w?: string
-  maxW?: string
 }
 
 
 export const Input = styled.input<IInput>`
   display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-  align-items: ${(p) => p.alignitems};
+  justify-content: ${(p) => p.justifycontent};
+  align-items: ${(p) => p.alignitems ?? 'center'};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
   outline: none;
+  height: ${(p) => p.h};
   width: ${(p) => p.w ?? '100%'};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   font-size: ${(p) => p.fs};
   color: ${(p) => p.color};
   font-weight: ${(p) => p.fw};
@@ -60,14 +61,19 @@ export const Input = styled.input<IInput>`
   }
 `
 export const Textarea = styled.textarea<ITExtarea>`
-  display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifycontent ?? 'space-between'};
+  display: ${(p) => p.display};
+  justify-content: ${(p) => p.justifycontent};
   align-items: ${(p) => p.alignitems};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
   outline: none;
   resize: none;
-  width: ${(p) => p.w ?? '100%'};
   height: ${(p) => p.h};
+  width: ${(p) => p.w ?? '100%'};
   min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   font-size: ${(p) => p.fs};
   color: ${(p) => p.color};
   font-weight: ${(p) => p.fw};
@@ -91,6 +97,11 @@ export const Textarea = styled.textarea<ITExtarea>`
   }
 `
 export const Form = styled.form<IForm>`
+  display: ${(p) => p.display};
+  justify-content:${(p) => p.justifycontent};
+  align-items: ${(p) => p.alignitems};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
   border-radius: ${(p) => p.br};
   border:${(p) => p.border};
   box-shadow: ${(p) => p.shadow ? `0px 0px 7px 3px ${p.shadowcolor ?? 'grey'}` : false};

@@ -1,15 +1,10 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 
 
-interface IButton extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+interface IButton extends IGlobal, IDisplay, IProportions {
   fs?: string,
   fw?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
-  minHeight?: string,
-  minWidth?: string,
   opacity?: number,
   ls?: string,
   br?: string,
@@ -28,17 +23,23 @@ interface IBtnLink extends IButton {
 
 export const Button = styled.button<IButton>`
   cursor: pointer;
+  display: ${(p) => p.display ?? 'flex'};
+  justify-content: ${(p) => p.justifycontent ?? 'center'};
+  align-items: ${(p) => p.alignitems ?? 'center'};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
   text-transform: ${(p) => p.textTransform};
   opacity: ${(p) => p.opacity ?? 1};
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
-  display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifycontent ?? 'center'};
-  align-items: ${(p) => p.alignitems ?? 'center'};
   font-size: ${(p) => p.fs ?? '14px'};
   font-weight: ${(p) => p.fw};
-  min-height: ${(p) => p.minHeight};
-  min-width: ${(p) => p.minWidth};
+  height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   letter-spacing: ${(p) => p.ls};
   outline: none;
   transition: all .3s;
@@ -68,19 +69,25 @@ export const Button = styled.button<IButton>`
 `
 
 export const BtnLink = styled.a<IBtnLink>`
-  text-decoration: ${(p) => p.textDecoration ?? 'none'};
   cursor: pointer;
+  display: ${(p) => p.display ?? 'flex'};
+  justify-content: ${(p) => p.justifycontent ?? 'center'};
+  align-items: ${(p) => p.alignitems ?? 'center'};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
+  text-decoration: ${(p) => p.textDecoration ?? 'none'};
   text-transform: ${(p) => p.textTransform};
   opacity: ${(p) => p.opacity ?? 1};
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
-  display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifycontent ?? 'center'};
-  align-items: ${(p) => p.alignitems ?? 'center'};
   font-size: ${(p) => p.fs ?? '14px'};
   font-weight: ${(p) => p.fw};
-  min-height: ${(p) => p.minHeight};
-  min-width: ${(p) => p.minWidth};
+  height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   letter-spacing: ${(p) => p.ls};
   outline: none;
   transition: all .3s;

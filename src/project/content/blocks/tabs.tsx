@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs';
+import { Tab, Tabs, TabsContent, TabsWrapper } from "../../../my-lib/blocks/tabs"
+import { useState } from 'react';
 
 
-const Sections = () => {
+const BlocksTabs = () => {
+
   const [tabIndex, setTabIndex] = useState(0)
   const dataTabs = [
+
     {
       tab: 'tab 0',
       content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fuga aspernatur atque impedit eligendi magni odio quidem ab odit earum.'
@@ -22,9 +24,11 @@ const Sections = () => {
       content: 'Lorem ipsum dolor sit '
     },
   ]
+
   return (
-    <TabsWrapper mw='600px' m='55px auto' >
-      <Tabs fullW='true'>
+    <>
+    <TabsWrapper maxW='600px' m='55px auto' >
+      <Tabs>
         {
           dataTabs.map((tab, index) => (
             index === tabIndex
@@ -51,6 +55,7 @@ const Sections = () => {
         ))
       }
     </TabsWrapper>
+    </>
   )
 }
-export default Sections
+export default BlocksTabs

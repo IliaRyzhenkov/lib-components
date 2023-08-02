@@ -8,20 +8,22 @@ import { Button } from '../../my-lib/components/buttons';
 
 
 const menuItems = [
-  { link: '/', name: 'Home' },
+  { link: '/layout', name: 'Layout' },
   { link: '/components', name: 'Components' },
   { link: '/blocks', name: 'Blocks' },
   { link: '/sections', name: 'Sections' },
 ]
 const Header = () => {
   return (
-    <LHeader bg='#F6EFE8'>
+    <LHeader bg='#F9F9F9'>
       <Container>
         <Row pt={'15px'} pb={'15px'} alignitems={'center'}>
           <Box display={'flex'}>
+            <NavLink to={'/'}>
             <Avatar shadowcolor={'pink'} size={'70px'} mr={'20px'}>
-              <Image src="/headerIcon.jpg" alt="logo" />
+              <Image src="/logo.png" alt="logo" />
             </Avatar>
+            </NavLink>
             <Menu display={'flex'}>
               {
                 menuItems.map((e) => (

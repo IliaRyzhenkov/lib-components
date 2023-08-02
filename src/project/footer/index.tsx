@@ -7,9 +7,9 @@ import { H5 } from '../../my-lib/components/typography';
 
 const Footer = () => {   
  return(    
- <LFooter bg={'#F6EFE8'} pt={'40px'} pb={'40px'}>
+ <LFooter bg='#F9F9F9' pt={'40px'} pb={'40px'}>
    <Container>
-    <Row >
+    <Row flexWrap='nowrap'>
       <Col size={2}>
        <Avatar shadowHover='true' size={'70px'} sx='border:2px solid white'>UI</Avatar> 
       </Col>

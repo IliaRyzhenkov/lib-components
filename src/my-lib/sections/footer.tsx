@@ -7,8 +7,10 @@ interface IFooter extends IBox {
 
 export const LFooter = styled.footer<IFooter>`
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent ?? 'space-between'};
-align-items: ${(p) => p.alignitems ?? 'center'};
+justify-content: ${(p) => p.justifycontent};
+align-items: ${(p) => p.alignitems};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
@@ -19,7 +21,7 @@ padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
 padding-left: ${(p) => p.pl};
 padding-right: ${(p) => p.pr};
-margin: ${(p) => p.m};
+margin: ${(p) => p.m}; 
 margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};

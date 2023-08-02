@@ -1,18 +1,11 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 import { Avatar } from '../components/image'
 
 
 
-interface IPopupContent extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
-  flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset'
-  w?: string
-  h?: string
-  mw?: string
-  mh?: string
+interface IPopupContent extends IGlobal, IDisplay, IProportions {
+
 }
 
 interface IPopupEclipse {
@@ -28,18 +21,21 @@ export interface IPopup extends IPopupContent, IPopupEclipse {
 
 
 export const PopupContent = styled.div<IPopupContent>`
+  display: ${(p) => p.display};
+  justify-content:${(p) => p.justifycontent};
+  align-items: ${(p) => p.alignitems};
+  flex-wrap: ${(p) => p.flexWrap};
+  flex-direction: ${(p) => p.flexDirection};
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: ${(p) => p.w};
   height: ${(p) => p.h};
-  max-width: ${(p) => p.mw};
-  max-height: ${(p) => p.mh};
-  display: ${(p) => p.display};
-  flex-wrap: ${(p) => p.flexWrap};
-  justify-content: ${(p) => p.justifycontent};
-  align-items: ${(p) => p.alignitems};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   color: ${(p) => p.color};
   background: ${(p) => p.bg ?? 'white'};
   padding: ${(p) => p.p};
