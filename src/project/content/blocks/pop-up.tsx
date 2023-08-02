@@ -23,7 +23,7 @@ const BlocksPopUp = () => {
         <Button onClick={() => setOpenPopup(!openPopup)} hover='reverseBorder'>openPopup</Button>
         <Button onClick={() => setOpenAllow(!openAllow)} hover='reverseBorder'>openAllow</Button>
       </Box>
-      <Popup openPopup={popupOpen} open={openPopup} mw='500px' eclipseOpacity='0.4'>
+      <Popup openPopup={popupOpen} open={openPopup} maxW='500px' eclipseOpacity='0.4'>
         <Card border={'1px solid #F6EFE8'} pb={'10px'} shadowcolor='#F6EFE8' >
           <CardHeader >
             <Image src='https://loremflickr.com/640/360' />
