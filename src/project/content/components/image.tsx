@@ -1,10 +1,9 @@
-
 const ComponentsImage = () => {
 
   return (
-    <>
-Image
-    </>
+  <>
+    Image
+  </>
   )
 }
 export default ComponentsImage

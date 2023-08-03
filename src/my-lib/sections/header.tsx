@@ -1,19 +1,19 @@
 import styled from 'styled-components'
-import { IBox } from '../layout'
+import { IDisplay, IGlobal } from '../models/global'
 
-interface IHeader extends IBox {
-  minHeight?: string
+interface IHeader extends IGlobal, IDisplay{
+  minH?:string
 }
 
 export const LHeader = styled.header<IHeader>`
+min-height: ${(p) => p.minH};
+
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent};
-align-items: ${(p) => p.alignitems};
+justify-content: ${(p)=> p.justifycontent};
+align-items: ${(p)=> p.alignitems};
 flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection};
-box-shadow:${(p) => p.boxShadow};
-border-radius: ${(p) => p.br};
-border:${(p) => p.border};
+
 color: ${(p) => p.color};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};

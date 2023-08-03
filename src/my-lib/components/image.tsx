@@ -1,34 +1,42 @@
 import styled from 'styled-components'
-import { IGlobal, IProportions } from '../models/global'
+import { IFonts, IGlobal, IProportions } from '../models/global'
 
-interface IAvatar extends IGlobal {
-  br?: string,
-  shadow?: string,
-  shadowcolor?: string,
-  size?: string,
-  fs?: string,
+interface IAvatar extends IGlobal, IFonts {
+  br?: string
+  shadow?: string
+  shadowcolor?: string
+  size?:string
   shadowHover?: string
 }
 
 interface IImage extends IProportions {
-  of?: 'contain' | 'cover' | 'fill' | 'inherit' | 'initial' | 'none' | 'revert' | 'scale-down' | 'unset',
-  op?: 'center' | 'top' | 'bottom' | 'right' | 'left',
+  of?: 'contain'|'cover'|'fill'|'inherit'|'initial'|'none'|'revert'|'scale-down'|'unset'
+  op?: 'center'|'top'|'bottom'|'right'|'left'
   filter?: string
 }
 
 export const Avatar = styled.div<IAvatar>`
-transition: all 0.3s ease-in-out;
-cursor: pointer;
- width: ${(p) => p.size ?? 50};
- height: ${(p) => p.size ?? 50};
- border-radius: ${(p) => p.br ?? '50%'};
- font-size: ${(p) => p.fs ?? '16px'};
+ transition: all 0.3s ease-in-out;
+ cursor: pointer;
  overflow: hidden;
  display: flex;
  align-items: center;
  justify-content: center;
- box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? 'grey'}` : false};
- box-shadow: ${(p) => p.shadowHover ? `0px 0px 0px 4px ${p.shadowcolor ?? 'pink'}` : false};
+
+ width: ${(p)=> p.size ?? 50};
+ height: ${(p)=> p.size ?? 50};
+
+ border-radius: ${(p)=> p.br ?? '50%'};
+ box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? 'grey' }` : false};
+
+ font-size: ${(p)=> p.fs ?? '16px'};
+ font-weight: ${(p) => p.fw};
+ letter-spacing: ${(p) => p.ls};
+ line-height: ${(p) => p.lh};
+ font-style: ${(p) => p.fontStyle};
+ text-align: ${(p) => p.textAlign};
+ text-transform: ${(p) => p.textTransform};
+
  color: ${(p) => p.color};
  background: ${(p) => p.bg};
  padding-top: ${(p) => p.pt};
@@ -39,32 +47,22 @@ cursor: pointer;
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
-${(p) => p.sx};
-&:hover{
- /* transition: all 0.3s ease-in-out;
- box-shadow: ${(p) => p.shadowHover ? `0px 0px 0px 8px ${p.shadowcolor ?? 'pink'}` : false}; */
-  animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count:3;
-@keyframes example {
-  0%{box-shadow: 0px 0px 0px 4px pink;}
-  25%{background:yellowgreen;}
-  50%{margin-top:0px;}
-  70%{margin-top:-20px;}
-  90%{margin-top:0px;}
-  100%{opacity:0;}
-}
-}
+ ${(p) => p.sx};
+ &:hover{
+  transition: all 0.3s ease-in-out;
+  box-shadow: ${(p) => p.shadowHover ? `0px 0px 10px 8px ${p.shadowcolor ?? 'pink' }` : false};
+ }
 `
 
 export const Image = styled.img<IImage>`
- width: ${(p) => p.w ?? '100%'};
- height: ${(p) => p.h ?? '100%'};
+ width: ${(p)=> p.w ?? '100%'};
+ height: ${(p)=> p.h ?? '100%'};
  min-height: ${(p) => p.minH};
  min-width: ${(p) => p.minW};
  max-height: ${(p) => p.maxH};
  max-width: ${(p) => p.maxW};
- object-fit: ${(p) => p.of ?? 'cover'};
- object-position: ${(p) => p.op ?? 'center'};
+ 
+ object-fit: ${(p)=> p.of ?? 'cover'};
+ object-position: ${(p)=> p.op ?? 'center'};
  filter: ${(p) => p.filter};
 `

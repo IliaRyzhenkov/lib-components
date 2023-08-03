@@ -1,10 +1,8 @@
 const SectionsPage = () => {
-
   return (
-    <>
-     SectionsPage
-    </>
+   <>
+   Sections Page
+   </>
   )
 }
-
 export default SectionsPage

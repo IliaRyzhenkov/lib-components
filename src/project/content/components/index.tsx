@@ -1,10 +1,8 @@
 const ComponentsPage = () => {
-
   return (
-    <>
-     ComponentsPage
-    </>
+   <>
+   Components Page
+   </>
   )
 }
-
 export default ComponentsPage

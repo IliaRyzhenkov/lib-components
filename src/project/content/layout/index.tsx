@@ -1,10 +1,8 @@
 const LayoutPage = () => {
-
   return (
-    <>
-     LayoutPage
-    </>
+   <>
+   Layout Page
+   </>
   )
 }
-
 export default LayoutPage

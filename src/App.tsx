@@ -1,19 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './project/content/pages/home';
-import Blocks from './project/content/blocks/pop-up';
-import Components from './project/content/components/form';
 import Header from './project/header';
 import Footer from './project/footer';
 import { Col, Container, Row, Section } from './my-lib/layout';
-import Sections from './project/content/sections/header';
-import SidebarSections from './project/sidebar/sidebar-section';
+import Home from './project/content/pages/home';
 import SidebarLayout from './project/sidebar/sidebar-layout';
+import SidebarSections from './project/sidebar/sidebar-sections';
 import SidebarBlocks from './project/sidebar/sidebar-blocks';
 import SidebarComponents from './project/sidebar/sidebar-components';
 import SidebarHome from './project/sidebar/sidebar-home';
 import About from './project/content/pages/about';
-import Contacts from './project/content/pages/contacts';
+import Contact from './project/content/pages/contacts';
 import LayoutPage from './project/content/layout';
 import LayoutBox from './project/content/layout/box';
 import LayoutColumns from './project/content/layout/columns';
@@ -32,13 +29,13 @@ import ComponentsPage from './project/content/components';
 import ComponentsButtons from './project/content/components/buttons';
 import ComponentsForm from './project/content/components/form';
 import ComponentsImage from './project/content/components/image';
-import ComponentsList from './project/content/components/lis';
+import ComponentsList from './project/content/components/list';
 import ComponentsTypography from './project/content/components/typography';
 
 function App() {
   return (
     <div className="App">
-      <Container fullwidth='true' pr='0' pl='0' bg='#F9F9F9'>
+      <Container fullwidth='true' pl='0' pr='0' bg='#F9F9F9'>
         <Row sx={'min-height:100vh'}>
           <Col size={2} bg='white'>
             <Routes>
@@ -55,28 +52,28 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/contacts' element={<Contacts/>} />
+                <Route path='/contacts' element={<Contact />} />
 
                 <Route path='/layout' element={<LayoutPage />} />
                 <Route path='/layout/box' element={<LayoutBox />} />
                 <Route path='/layout/columns' element={<LayoutColumns />} />
                 <Route path='/layout/container' element={<LayoutContainer />} />
                 <Route path='/layout/row' element={<LayoutRow />} />
-                <Route path='/layout/sections' element={<LayoutSections />} />
+                <Route path='/layout/section' element={<LayoutSections />} />
 
-                <Route path='/sections/' element={<SectionsPage/>} />
-                <Route path='/sections/header' element={<SectionsHeader/>} />
-                <Route path='/sections/footer' element={<SectionsFooter/>} />
+                <Route path='/sections' element={<SectionsPage />} />
+                <Route path='/sections/header' element={<SectionsHeader />} />
+                <Route path='/sections/footer' element={<SectionsFooter />} />
 
-                <Route path='/blocks/' element={<BlocksPage />} />
+                <Route path='/blocks' element={<BlocksPage />} />
                 <Route path='/blocks/cards' element={<BlocksCard />} />
                 <Route path='/blocks/menu' element={<BlocksMenu />} />
                 <Route path='/blocks/pop-up' element={<BlocksPopUp />} />
                 <Route path='/blocks/tabs' element={<BlocksTabs />} />
 
-                <Route path='/components/' element={<ComponentsPage />} />
+                <Route path='/components' element={<ComponentsPage />} />
                 <Route path='/components/buttons' element={<ComponentsButtons />} />
-                <Route path='/components/form' element={<ComponentsForm/>} />
+                <Route path='/components/form' element={<ComponentsForm />} />
                 <Route path='/components/image' element={<ComponentsImage />} />
                 <Route path='/components/list' element={<ComponentsList />} />
                 <Route path='/components/typography' element={<ComponentsTypography />} />

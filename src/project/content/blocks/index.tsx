@@ -1,10 +1,8 @@
 const BlocksPage = () => {
-
   return (
-    <>
-     BlocksPage
-    </>
+   <>
+   Bloks Page
+   </>
   )
 }
-
 export default BlocksPage

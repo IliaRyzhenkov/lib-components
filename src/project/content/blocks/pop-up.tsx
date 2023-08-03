@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Container, } from '../../../my-lib/layout';
+import { Box, Col, Container, Row } from '../../../my-lib/layout';
 import { Card, CardContent, CardFooter, CardHeader } from '../../../my-lib/blocks/card';
-import { Image } from '../../../my-lib/components/image';
-import { H3, P, H1 } from '../../../my-lib/components/typography';
+import { Avatar, Image } from '../../../my-lib/components/image';
+import { H1, H3, P } from '../../../my-lib/components/typography';
 import { BtnLink, Button } from '../../../my-lib/components/buttons';
 import { Popup } from '../../../my-lib/blocks/pop-up';
 
@@ -11,28 +11,26 @@ const BlocksPopUp = () => {
   const [openPopup, setOpenPopup] = useState(false)
   const [openAllow, setOpenAllow] = useState(false)
 
-  function popupOpen() {
-    setOpenPopup(!openPopup)
-  }
-  function popupAllow() {
-    setOpenAllow(!openAllow)
-  }
   return (
     <Container mt={'50px'}>
-      <Box display='flex' justifycontent='flex-end'>
-        <Button onClick={() => setOpenPopup(!openPopup)} hover='reverseBorder'>openPopup</Button>
-        <Button onClick={() => setOpenAllow(!openAllow)} hover='reverseBorder'>openAllow</Button>
+      <Box display='flex' justifycontent={'flex-end'}>
+         <Button onClick={() => setOpenPopup(!openPopup)}>Open Popup</Button>
+      <Button onClick={() => setOpenAllow(!openAllow)}>Open Allow</Button>
       </Box>
-      <Popup openPopup={popupOpen} open={openPopup} maxW='500px' eclipseOpacity='0.4'>
-        <Card border={'1px solid #F6EFE8'} pb={'10px'} shadowcolor='#F6EFE8' >
-          <CardHeader >
+     
+
+      <Popup openPopup={setOpenPopup} open={openPopup} eclipseOpacity='0.4'>
+        <Card border='1px solid #F6EFE8' pb='10px' shadow={'variant-1'} shadowcolor='#F6EFE8'>
+          <CardHeader h='300px'>
             <Image src='https://loremflickr.com/640/360' />
           </CardHeader>
-          <CardContent pl={'10px'} pr={'10px'}>
-            <H3 mb={'10px'}>Card Title</H3>
-            <P lh={'1.4em'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto omnis ut illum sunt quae?</P>
+          <CardContent pl='15px' pr='15px'>
+            <H3 mb='10px'>Card Title</H3>
+            <P lh='1.4em'>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis repellat assumenda culpa mollitia similique. Quod quam dolore ratione. Facere pariatur, dolore ipsam hic maxime mollitia id ut deserunt ducimus animi!
+            </P>
           </CardContent>
-          <CardFooter display={'flex'} p={'10px'} >
+          <CardFooter p='15px' display='flex'>
             <BtnLink mr={'10px'} hover={'reverseBorder'}>
               Read More
             </BtnLink>
@@ -42,17 +40,17 @@ const BlocksPopUp = () => {
           </CardFooter>
         </Card>
       </Popup>
-      <Popup openPopup={popupAllow} open={openAllow}>
-        <Card shadow={'true'}>
+      <Popup openPopup={setOpenAllow} open={openAllow}  eclipseOpacity='0.3'>
+        <Card>
           <CardHeader p='20px'>
-            <H1>lorem ipsum</H1>
+            <H1>Lorem ipsum</H1>
           </CardHeader>
-          <CardContent p='20px' sx={'border-top: 1px solid grey'}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, omnis?
+          <CardContent p='20px' sx={'border-top:1px solid grey'}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam unde, excepturi neque porro nihil quidem provident voluptatum sed accusantium quo.
           </CardContent>
           <CardFooter display='flex' p='20px'>
-            <Button bg='orange' hover='reverseBorder'>allow</Button>
-            <Button hover='reverseBorder'>close</Button>
+            <Button bg='orange' hover={'reverseBorder'}>allow</Button>
+            <Button hover={'reverseBorder'}>close</Button>
           </CardFooter>
         </Card>
       </Popup>

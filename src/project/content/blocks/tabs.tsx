@@ -1,61 +1,60 @@
-import { Tab, Tabs, TabsContent, TabsWrapper } from "../../../my-lib/blocks/tabs"
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs';
 
 const BlocksTabs = () => {
 
   const [tabIndex, setTabIndex] = useState(0)
-  const dataTabs = [
 
+  const dataTabs = [
     {
       tab: 'tab 0',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fuga aspernatur atque impedit eligendi magni odio quidem ab odit earum.'
+      content: '0Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui ullam sapiente magnam ipsum nisi ut inventore veritatis iure veniam!'
     },
     {
-      tab: 'tab 1 ',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eoodio quidem ab odit earum.'
+      tab: '1Lorem ipsum',
+      content: '1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui ullam sapiente magnam ipsum nisi ut inventore veritatis iure veniam!'
     },
     {
       tab: 'tab 2',
-      content: 'Lorem ipsum dolor sit t eligendi magni odio quidem ab odit earum.'
+      content: '2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui ullam sapiente magnam ipsum nisi ut inventore veritatis iure veniam!'
     },
     {
       tab: 'tab 3',
-      content: 'Lorem ipsum dolor sit '
-    },
+      content: '3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui ullam sapiente magnam ipsum nisi ut inventore veritatis iure veniam!'
+    }
   ]
 
   return (
-    <>
-    <TabsWrapper maxW='600px' m='55px auto' >
-      <Tabs>
-        {
-          dataTabs.map((tab, index) => (
-            index === tabIndex
-              ?
-              <Tab active='default'tabs='classic'  mb='-1px'
-                onClick={() => setTabIndex(index)}
-                key={index}
-              >{tab.tab}</Tab>
-              :
-              <Tab tabs='underline'
-                onClick={() => setTabIndex(index)}
-                key={index}
-              >{tab.tab}</Tab>
-          ))
-        }
-      </Tabs>
-
+    <TabsWrapper maxW='600px'  m='55px auto' >
+    <Tabs>
       {
-        dataTabs.map((content, index) => (
-          index === tabIndex ?
-            <TabsContent bg='white' border='1px solid' p='20px' key={index}>
-              {content.content}
-            </TabsContent> : false
+        dataTabs.map((tab, index) => (
+          index === tabIndex
+            ?
+            <Tab active='default' tabs='classic' mb='-1px'
+              onClick={() => setTabIndex(index)}
+              key={index}
+            >{tab.tab}</Tab>
+            :
+            <Tab tabs='classic'
+              onClick={() => setTabIndex(index)}
+              key={index}
+            >{tab.tab}</Tab>
         ))
       }
-    </TabsWrapper>
-    </>
+    </Tabs>
+    {
+      dataTabs.map((content, index) => (
+        index === tabIndex
+          ?
+          <TabsContent bg='white' shadow='variant-1' p='20px' key={index}>
+            {content.content}
+          </TabsContent>
+          :
+          false
+      ))
+    }
+  </TabsWrapper>
   )
 }
 export default BlocksTabs

@@ -1,10 +1,9 @@
-
 const SectionsHeader = () => {
 
   return (
-    <>
-Header
-    </>
+  <>
+    Header
+  </>
   )
 }
 export default SectionsHeader

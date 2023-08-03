@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 import { IBox } from '../layout'
+import { IDisplay, IGlobal } from '../models/global'
 
-interface IFooter extends IBox {
-  minHeight?: string
+interface IFooter extends IGlobal, IDisplay{
+  minH?:string
 }
 
 export const LFooter = styled.footer<IFooter>`
+min-height: ${(p) => p.minH};
+
 display: ${(p) => p.display ?? 'block'};
-justify-content: ${(p) => p.justifycontent};
-align-items: ${(p) => p.alignitems};
+justify-content: ${(p)=> p.justifycontent};
+align-items: ${(p)=> p.alignitems};
 flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection};
-box-shadow:${(p) => p.boxShadow};
-border-radius: ${(p) => p.br};
-border:${(p) => p.border};
+
 color: ${(p) => p.color};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
@@ -21,7 +22,7 @@ padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
 padding-left: ${(p) => p.pl};
 padding-right: ${(p) => p.pr};
-margin: ${(p) => p.m}; 
+margin: ${(p) => p.m};
 margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};

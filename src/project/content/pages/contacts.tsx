@@ -1,11 +1,8 @@
-
-const Contacts = () => {
-
+const Contact = () => {
   return (
-    <>
-      Contacts
-    </>
+   <>
+   Contact Page
+   </>
   )
 }
-
-export default Contacts
+export default Contact
