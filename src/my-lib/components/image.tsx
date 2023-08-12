@@ -7,6 +7,7 @@ interface IAvatar extends IGlobal, IFonts {
   shadowcolor?: string
   size?:string
   shadowHover?: string
+  type?: 'primary' | 'secondary'
 }
 
 interface IImage extends IProportions {

@@ -1,4 +1,3 @@
-import { Image } from "../../../my-lib/components/image"
 import { List, ListItem } from "../../../my-lib/components/list"
 
 const ComponentsList = () => {
