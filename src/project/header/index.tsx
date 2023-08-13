@@ -33,10 +33,6 @@ const Header = () => {
                 <Image src="/logo.png" alt="logo" />
               </Avatar>
             </NavLink>
-            <Avatar shadowcolor={'pink'} shadow={'true'} size={'70px'} mr={'20px'}>
-               AA
-              </Avatar>
-
             <Menu display={'flex'}>
               {
                 menuItems.map((e) => (
