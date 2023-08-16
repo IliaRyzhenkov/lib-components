@@ -16,7 +16,7 @@ const SidebarHome = () => {
           menuItems.map((item) => (
             <ListItem key={item.link} styledLink='true'
               beforeStyle='circle' beforeLeft='15px' beforeColor='white' beforeSize='10px'
-              mt={'5px'} p='23px 40px' ls={'1px'} bg={Theme.bgAccent} >
+              mt={'5px'} p='23px 40px' ls={'1px'} bg={Theme.currentTheme.bgAccent} >
               <NavLink to={item.link}>
                 {item.name}
               </NavLink>

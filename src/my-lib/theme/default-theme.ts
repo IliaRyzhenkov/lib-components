@@ -12,7 +12,7 @@ export interface ITheme {
   bgSecondary?: string,
   bgAccent?: string
 } 
-export let defaultTheme:ITheme = {
+export const defaultTheme:ITheme = {
   primary: '#6A7578',
   fontPrimary: '#FAF8F7',
 
@@ -29,6 +29,25 @@ export let defaultTheme:ITheme = {
   bgPrimary: '#8CA5B5',
   bgSecondary: '#2D3C4A',
   bgAccent: '#587682'
+}
+
+export const purpleTheme:ITheme = {
+  primary: '#9D4C4C',
+  fontPrimary: '#FAF8F7',
+
+  secondary: '#8E4254',
+  fontSecondary: '#FAF8F7',
+
+  paper: '#FAF8F7',
+  fontColor: '#465D76',
+  
+  shadowColor: '#8CA5B5',
+  bg: '#ECF2FF',
+
+  fontColorBg: '#FAF8F7',
+  bgPrimary: '#BE6C9F',
+  bgSecondary: '#7B577F',
+  bgAccent: '#AF6EA1'
 }
 
 

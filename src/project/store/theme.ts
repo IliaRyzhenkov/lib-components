@@ -1,5 +1,5 @@
 import {makeAutoObservable} from "mobx";
-import { ITheme, defaultTheme } from "../../my-lib/theme/default-theme";
+import { ITheme, defaultTheme, purpleTheme } from "../../my-lib/theme/default-theme";
 
 class ThemeStore {
 
@@ -7,12 +7,30 @@ class ThemeStore {
         makeAutoObservable(this)
     }
 
-    theme:ITheme = {
+    currentTheme:ITheme = {
         ...defaultTheme
+    }
+
+    purpleTheme:ITheme = {
+        ...purpleTheme,
+        
+    }
+
+    setCurrentTheme(state: boolean){
+        state 
+        ?
+        this.currentTheme = {
+            ...this.purpleTheme
+        } 
+        :
+        this.currentTheme = {
+            ...defaultTheme
+        } 
+
     }
 
 }
 
-const ThemeTemp = new ThemeStore()
-const Theme = ThemeTemp.theme
+const Theme = new ThemeStore()
+
 export {Theme}

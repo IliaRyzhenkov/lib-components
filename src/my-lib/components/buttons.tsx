@@ -165,6 +165,3 @@ export const BtnLink = styled.a<BtnLink>`
    }
 `
 
-Button.defaultProps = BtnLink.defaultProps = {
-  theme: defaultTheme
-}
