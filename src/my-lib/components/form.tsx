@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/global';
 

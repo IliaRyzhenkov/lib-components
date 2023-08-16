@@ -2,29 +2,30 @@ import styled from 'styled-components'
 import { IBorder, IFonts, IGlobal, IProportions } from '../models/global'
 
 interface IList extends IProportions, IBorder, IFonts, IGlobal {
-  listStyle?: 'none' | 'decimal' | 'circle' | 'disk' | 'square'
+  listStyle?: 'none' | 'decimal' | 'circle' | 'disc' | 'square'
 }
 interface IListItem extends IFonts, IGlobal {
-  beforeStyle?: 'circle' | 'disk' | 'square' | 'LineX' | 'LineY'
+  beforeStyle?: 'circle' | 'square' | 'LineX' | 'LineY'
   beforeContent?: string
   beforeColor?: string
   beforeSize?: string
   beforeLeft?: string
   beforeTop?: string
   beforeRadius?: string
+  styledLink?: 'true'
+  br?:string
 }
 
 export const List = styled.ul<IList>`
  list-style: ${(p) => p.listStyle};
- ${(p) => p.listStyle ?`
+ ${(p) => p.listStyle ? `
   & li{
-    display: list-item;
+    display:list-item;
     &:before{
       display:none;
     }
   }
- ` : false}
-
+ `: false}
  height: ${(p) => p.h};
  width: ${(p) => p.w};
  min-height: ${(p) => p.minH};
@@ -57,67 +58,99 @@ export const List = styled.ul<IList>`
  padding: ${(p) => p.p};
  padding-top: ${(p) => p.pt};
  padding-bottom: ${(p) => p.pb};
- padding-left: ${(p) => p.pl};
+ padding-left: ${(p) => p.pl ?? '30px'};
  padding-right: ${(p) => p.pr};
+ margin: ${(p) => p.m};
  margin-top: ${(p) => p.mt};
  margin-bottom: ${(p) => p.mb};
- margin-left: ${(p) => p.ml ?? '30px'};
+ margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
  ${(p) => p.sx};
+ & li{
+  color: ${(p) => p.color};
+  a{
+    color: ${(p) => p.color};
+    text-decoration: none;
+  }
+ }
 `
 export const ListItem = styled.li<IListItem>`
  position: relative;
  display: flex;
  align-items: center;
+ border-radius: ${(p) => p.br};
 
  &:before{
   content: '${(p) => p.beforeContent}';
   position: absolute;
-  background-color: ${(p) => p.beforeColor ?? '#8696FE'};
+  background-color: ${(p) => p.beforeColor ?? '#8696FE'} ;
   left: ${(p) => p.beforeLeft ?? '-15px'};
   top: ${(p) => p.beforeTop};
-  
-  ${(p) => p.beforeStyle == 'circle' ?`
-  width: ${ p.beforeSize ?? '7px'};
-  height: ${ p.beforeSize ?? '7px'};
-  border-radius: ${ p.beforeRadius ?? '50%' };`
-
-  : p.beforeStyle == 'square' ?`
-  width: ${ p.beforeSize ?? '7px'};
-  height: ${ p.beforeSize ?? '7px'};
-  border-radius: ${ p.beforeRadius};`
-
-  : p.beforeStyle == 'LineX' ?`
-  width: ${ p.beforeSize ?? '7px'};
+  ${(p) => p.beforeStyle == 'circle' ? `
+  width: ${p.beforeSize ?? '7px'};
+  height: ${p.beforeSize ?? '7px'};
+  border-radius: ${p.beforeRadius ?? '50%'};`
+    : p.beforeStyle == 'square' ? `
+  width: ${p.beforeSize ?? '7px'};
+  height: ${p.beforeSize ?? '7px'};
+  border-radius: ${p.beforeRadius};`
+      : p.beforeStyle == 'LineX' ? `
+  width: ${p.beforeSize ?? '7px'};
   height: 2px;
-  border-radius: ${ p.beforeRadius ?? '50%' };`
-
-  : p.beforeStyle == 'LineY' ?`
+  border-radius: ${p.beforeRadius};`
+        : p.beforeStyle == 'LineY' ? `
   width: 2px;
-  height: ${ p.beforeSize ?? '7px'};
-  border-radius: ${ p.beforeRadius};`
-  : false
+  height: ${p.beforeSize ?? '7px'};
+  border-radius: ${p.beforeRadius};`
+          : false
   }
  }
+${(p) => p.styledLink ?
+    `
+  & a{
+    ${p.fs ? `font-size: ${p.fs};` : false};
+    ${p.fw ? `font-weight: ${p.fw};` : false} ;
+    ${p.ls ? `letter-spacing: ${p.ls};` : false} ;
+    ${p.lh ? `line-height: ${p.lh};` : false} ;
+    ${p.fontStyle ? `font-style: ${p.fontStyle};` : false} ;
+    ${p.textAlign ? `text-align: ${p.textAlign};` : false} ;
+    ${p.textTransform ? `text-transform: ${p.textTransform};` : false}  ;
+    ${p.color ? `color: ${p.color};` : false} ;
+    ${p.bg ? `background: ${p.bg};` : false} ;
+    ${p.p ? `padding: ${p.p};` : false} ;
+    ${p.pt ? `padding-top: ${p.pt};` : false} ;
+    ${p.pb ? `padding-bottom: ${p.pb};` : false} ;
+    ${p.pl ? `padding-left: ${p.pl};` : false} ;
+    ${p.pr ? `padding-right: ${p.pr};` : false} ;
+     width:100%;
+   }
+  `
+    :
 
- font-size: ${(p) => p.fs};
- font-weight: ${(p) => p.fw};
- letter-spacing: ${(p) => p.ls};
- line-height: ${(p) => p.lh};
- font-style: ${(p) => p.fontStyle};
- text-align: ${(p) => p.textAlign};
- text-transform: ${(p) => p.textTransform};
-
- color: ${(p) => p.color};
- background: ${(p) => p.bg};
- padding-top: ${(p) => p.pt};
- padding-bottom: ${(p) => p.pb};
- padding-left: ${(p) => p.pl};
- padding-right: ${(p) => p.pr};
+    `
+    ${p.fs ? `font-size: ${p.fs};` : false};
+    ${p.fw ? `font-weight: ${p.fw};` : false} ;
+    ${p.ls ? `letter-spacing: ${p.ls};` : false} ;
+    ${p.lh ? `line-height: ${p.lh};` : false} ;
+    ${p.fontStyle ? `font-style: ${p.fontStyle};` : false} ;
+    ${p.textAlign ? `text-align: ${p.textAlign};` : false} ;
+    ${p.textTransform ? `text-transform: ${p.textTransform};` : false}  ;
+    ${p.color ? `color: ${p.color};` : false} ;
+    ${p.bg ? `background: ${p.bg};` : false} ;
+    ${p.p ? `padding: ${p.p};` : false} ;
+    ${p.pt ? `padding-top: ${p.pt};` : false} ;
+    ${p.pb ? `padding-bottom: ${p.pb};` : false} ;
+    ${p.pl ? `padding-left: ${p.pl};` : false} ;
+    ${p.pr ? `padding-right: ${p.pr};` : false} ;
+  `
+  }
+ margin: ${(p) => p.m};
  margin-top: ${(p) => p.mt ?? '8px'};
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
  ${(p) => p.sx};
- 
+ & a{
+    color: ${(p) => p.color};
+  }
 `

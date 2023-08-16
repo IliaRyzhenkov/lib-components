@@ -1,16 +1,29 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, MenuItem } from '../../my-lib/blocks/menu';
+import { List, ListItem } from '../../my-lib/components/list';
+import { Theme } from '../store/theme';
 
 
+const menuItems = [
+  { link: '/about', name: 'About' },
+  { link: '/contact', name: 'Contact' }
+]
 
 const SidebarHome = () => {
   return (
     <>
-      <Menu display='block'>
-       <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/about"}>About Us</NavLink></MenuItem>
-       <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/contacts"}>Contacts</NavLink></MenuItem>
-      </Menu>
+      <List color='white' pl='0px'>
+        {
+          menuItems.map((item) => (
+            <ListItem key={item.link} styledLink='true'
+              beforeStyle='circle' beforeLeft='15px' beforeColor='white' beforeSize='10px'
+              mt={'5px'} p='23px 40px' ls={'1px'} bg={Theme.bgAccent} >
+              <NavLink to={item.link}>
+                {item.name}
+              </NavLink>
+            </ListItem>
+          ))
+        }
+      </List>
     </>
   )
 }

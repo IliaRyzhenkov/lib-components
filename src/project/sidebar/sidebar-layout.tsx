@@ -7,7 +7,7 @@ import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 const SidebarLayout = () => {
   return (
     <>
-      <Menu display='block' p='30px'>
+      <Menu display='block'>
         <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB'><NavLink to={"/layout/box"}>Box</NavLink></MenuItem>
         <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB'><NavLink to={"/layout/section"}>Section</NavLink></MenuItem>
         <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB'><NavLink to={"/layout/container"}>Container</NavLink></MenuItem>

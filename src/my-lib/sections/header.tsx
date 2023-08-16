@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { IDisplay, IGlobal } from '../models/global'
+import { defaultTheme } from '../theme/default-theme'
 
 interface IHeader extends IGlobal, IDisplay{
   minH?:string
@@ -14,8 +15,8 @@ align-items: ${(p)=> p.alignitems};
 flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection};
 
-color: ${(p) => p.color};
-background: ${(p) => p.bg};
+color: ${(p) => p.color ?? p.theme.fontColorBg};
+background: ${(p) => p.bg ?? p.theme.bgPrimary};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};

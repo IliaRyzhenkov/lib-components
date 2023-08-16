@@ -41,7 +41,7 @@ export const Button = styled.button<IButton>`
   max-height: ${(p) => p.maxH};
   max-width: ${(p) => p.maxW};
 
-
+ 
   border:${(p) => p.border ?? `1px solid ${p.bg ?? p.theme.primary}`};
   border-radius: ${(p) => p.br ?? '5px'};
   box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
@@ -69,26 +69,26 @@ export const Button = styled.button<IButton>`
   ${(p) => p.sx};
    &:hover {
     background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
-    ? p.color ?? p.theme.fontPrimary
-    : p.hover == 'opacity'
+     ? p.color ?? p.theme.fontPrimary
+     : p.hover == 'opacity'
       ? false
-      : p.hoverbg ?? p.theme.secondary};
-    
+      : p.hoverbg ?? p.theme.secondary}; 
     color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
-    ? p.bg ?? p.theme.primary
-    : p.hover == 'opacity'
+     ? p.bg ?? p.theme.primary
+     : p.hover == 'opacity'
       ? false
-    : p.hovercolor ?? p.theme.fontSecondary};
+      :p.hovercolor ?? p.theme.fontSecondary};
 
     border: ${(p) => p.hover == 'reverse' 
-    ? `1px solid ${p.color ?? p.theme.fontPrimary}` 
-    :  p.hover == ('reverseBorder' || 'opacity')
-    ? `1px solid ${ p.bg ?? p.theme.primary}` 
+    ? `1px solid ${p.color ?? p.theme.fontPrimary}`
+    : p.hover == ('reverseBorder' || 'opacity')
+    ? `1px solid ${p.bg ?? p.theme.primary}` 
     : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
     opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
    }
 `
+
 
 export const BtnLink = styled.a<BtnLink>`
   cursor: pointer;
@@ -130,7 +130,7 @@ export const BtnLink = styled.a<BtnLink>`
             p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
   };
 
-color: ${(p) => p.color ?? p.theme.fontPrimary};
+  color: ${(p) => p.color ?? p.theme.fontPrimary};
   background: ${(p) => p.bg ?? p.theme.primary};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
@@ -145,26 +145,26 @@ color: ${(p) => p.color ?? p.theme.fontPrimary};
   ${(p) => p.sx};
   &:hover {
     background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
-    ? p.color ?? p.theme.fontPrimary
-    : p.hover == 'opacity'
+     ? p.color ?? p.theme.fontPrimary
+     : p.hover == 'opacity'
       ? false
-      : p.hoverbg ?? p.theme.secondary};
-    
+      : p.hoverbg ?? p.theme.secondary}; 
     color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
-    ? p.bg ?? p.theme.primary
-    : p.hover == 'opacity'
+     ? p.bg ?? p.theme.primary
+     : p.hover == 'opacity'
       ? false
-    : p.hovercolor ?? p.theme.fontSecondary};
+      : p.hovercolor ?? p.theme.fontSecondary};
 
     border: ${(p) => p.hover == 'reverse' 
-    ? `1px solid ${p.color ?? p.theme.fontPrimary}` 
-    :  p.hover == ('reverseBorder' || 'opacity')
-    ? `1px solid ${ p.bg ?? p.theme.primary}` 
+    ? `1px solid ${p.color ?? p.theme.fontPrimary}`
+    : p.hover == ('reverseBorder' || 'opacity')
+    ? `1px solid ${p.bg ?? p.theme.primary}` 
     : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
     opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
    }
 `
+
 Button.defaultProps = BtnLink.defaultProps = {
   theme: defaultTheme
 }

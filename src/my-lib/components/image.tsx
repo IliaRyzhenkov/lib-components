@@ -39,7 +39,7 @@ export const Avatar = styled.div<IAvatar>`
  text-transform: ${(p) => p.textTransform};
 
  color: ${(p) => p.color};
- background: ${(p) => p.bg};
+ background: ${(p) => p.bg ?? p.theme.color};
  padding-top: ${(p) => p.pt};
  padding-bottom: ${(p) => p.pb};
  padding-left: ${(p) => p.pl};

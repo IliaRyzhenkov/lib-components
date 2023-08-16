@@ -35,7 +35,7 @@ ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)
          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
          p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
 };
-box-shadow:${(p) => p.customShadow};  
+box-shadow:${(p) => p.customShadow}; 
 
 color: ${(p) => p.color};
 background: ${(p) => p.bg};
@@ -66,7 +66,6 @@ export const CardHeader = styled.div<ICardInner>`
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
 
-  min-height: ${(p) => p.minH};
   height: ${(p) => p.h};
   width: ${(p) => p.w};
   min-height: ${(p) => p.minH};
