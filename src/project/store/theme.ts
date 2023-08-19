@@ -16,6 +16,13 @@ class ThemeStore {
         
     }
 
+    setCustomTheme(customTheme: ITheme){
+        this.currentTheme = {
+            ...customTheme
+        } 
+    }
+    
+
     setCurrentTheme(state: boolean){
         state 
         ?

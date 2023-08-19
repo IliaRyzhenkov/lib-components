@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Box, Col, Container, Row } from '../../my-lib/layout';
-import { Avatar, Image } from '../../my-lib/components/image';
+import { Row } from '../../my-lib/layout';
 import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
 import { Button } from '../../my-lib/components/buttons';
@@ -30,8 +29,8 @@ const Header = () => {
           }
         </Menu>
         <Button >Read More</Button>
-          <SwitchWrapper br='none' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-            <Switch br='none'/>
+          <SwitchWrapper w='50px' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
+            <Switch />
           </SwitchWrapper>
       </Row>
     </LHeader>

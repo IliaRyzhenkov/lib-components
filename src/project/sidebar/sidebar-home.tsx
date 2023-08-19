@@ -5,7 +5,8 @@ import { Theme } from '../store/theme';
 
 const menuItems = [
   { link: '/about', name: 'About' },
-  { link: '/contact', name: 'Contact' }
+  { link: '/contact', name: 'Contact' },
+  { link: '/customizer', name: 'Customizer' },
 ]
 
 const SidebarHome = () => {
