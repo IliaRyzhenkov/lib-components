@@ -50,12 +50,12 @@ export const Row = styled.div<IRow>`
 export const Container = styled.div<IContainer>`
   margin: auto;
 
+
   height: ${(p) => p.h};
   width: ${(p) => p.w ?? '100%'};
   min-height: ${(p) => p.minH};
   min-width: ${(p) => p.minW};
   max-height: ${(p) => p.maxH};
-  max-width: ${(p) => p.maxW};
   max-width: ${(p) => p.fullwidth === 'true' ? '100%' : '1300px'};
 
   display: ${(p) => p.display};
@@ -161,13 +161,6 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
-
-height: ${(p) => p.h};
-width: ${(p) => p.w};
-min-height: ${(p) => p.minH};
-min-width: ${(p) => p.minW};
-max-height: ${(p) => p.maxH};
-max-width: ${(p) => p.maxW};
 ${(p) => p.sx};
 `
 export const Section = styled.section<ISection>`

@@ -40,72 +40,71 @@ import { observer } from 'mobx-react';
 import Customizer from './project/content/pages/customizer';
 
 
-const App = observer( () => {
-  
+const App = observer(() => {
+
   return (
     <ThemeProvider theme={Theme.currentTheme}>
-    <div className="App">
-      <Container fullwidth='true' pl='0' pr='0'>
-        <Row sx={'min-height:100vh'}>
-          <Col size={2} spacing='0px'>
-            <Sidebar type='gradient'>
-            <Box p='17px 15px'>
-              <NavLink to={'/'}>
-                <Image h='50px' w='auto' src="/logo.png" alt="logo" />
-              </NavLink>
-            </Box>
-            <Separate bg='white' mt='0px' mb='40px'/>
-            <Routes>
-              <Route path='/*' element={<SidebarHome />} />
-              <Route path='/layout/*' element={<SidebarLayout />} />
-              <Route path='/sections/*' element={<SidebarSections />} />
-              <Route path='/blocks/*' element={<SidebarBlocks />} />
-              <Route path='/components/*' element={<SidebarComponents />} />
-            </Routes>
-            </Sidebar>
-          </Col>
-          <Col size={10} spacing='0px' display='flex' flexDirection='column'>
-            <Header />
-            <Section flex={'1'} bg='#F3F6F9' p='20px'>
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/customizer' element={<Customizer />} />
+      <div className="App">
+        <Container fullwidth='true' pl='0' pr='0'>
+          <Row sx={'min-height:100vh'}>
+            <Col size={2} spacing='0px'>
+              <Sidebar type='gradient'>
+                <Box p='17px 15px'>
+                  <NavLink to={'/'}>
+                    <Image h='50px' w='auto' src="/logo.png" alt="logo" />
+                  </NavLink>
+                </Box>
+                <Separate bg='white' mt='0px' mb='20px' />
+                <Routes>
+                  <Route path='/*' element={<SidebarHome />} />
+                  <Route path='/layout/*' element={<SidebarLayout />} />
+                  <Route path='/sections/*' element={<SidebarSections />} />
+                  <Route path='/blocks/*' element={<SidebarBlocks />} />
+                  <Route path='/components/*' element={<SidebarComponents />} />
+                </Routes>
+              </Sidebar>
+            </Col>
+            <Col size={10} spacing='0px' display='flex' flexDirection='column'>
+              <Header />
+              <Section flex={'1'} bg='#F3F6F9' p='20px'>
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/about' element={<About />} />
+                  <Route path='/contacts' element={<Contact />} />
+                  <Route path='/customizer' element={<Customizer />} />
 
-                <Route path='/layout' element={<LayoutPage />} />
-                <Route path='/layout/box' element={<LayoutBox />} />
-                <Route path='/layout/columns' element={<LayoutColumns />} />
-                <Route path='/layout/container' element={<LayoutContainer />} />
-                <Route path='/layout/row' element={<LayoutRow />} />
-                <Route path='/layout/section' element={<LayoutSections />} />
+                  <Route path='/layout' element={<LayoutPage />} />
+                  <Route path='/layout/box' element={<LayoutBox />} />
+                  <Route path='/layout/columns' element={<LayoutColumns />} />
+                  <Route path='/layout/container' element={<LayoutContainer />} />
+                  <Route path='/layout/row' element={<LayoutRow />} />
+                  <Route path='/layout/section' element={<LayoutSections />} />
 
-                <Route path='/sections' element={<SectionsPage />} />
-                <Route path='/sections/header' element={<SectionsHeader />} />
-                <Route path='/sections/footer' element={<SectionsFooter />} />
+                  <Route path='/sections' element={<SectionsPage />} />
+                  <Route path='/sections/header' element={<SectionsHeader />} />
+                  <Route path='/sections/footer' element={<SectionsFooter />} />
 
-                <Route path='/blocks' element={<BlocksPage />} />
-                <Route path='/blocks/cards' element={<BlocksCard />} />
-                <Route path='/blocks/menu' element={<BlocksMenu />} />
-                <Route path='/blocks/pop-up' element={<BlocksPopUp />} />
-                <Route path='/blocks/tabs' element={<BlocksTabs />} />
+                  <Route path='/blocks' element={<BlocksPage />} />
+                  <Route path='/blocks/cards' element={<BlocksCard />} />
+                  <Route path='/blocks/menu' element={<BlocksMenu />} />
+                  <Route path='/blocks/pop-up' element={<BlocksPopUp />} />
+                  <Route path='/blocks/tabs' element={<BlocksTabs />} />
 
-                <Route path='/components' element={<ComponentsPage />} />
-                <Route path='/components/buttons' element={<ComponentsButtons />} />
-                <Route path='/components/form' element={<ComponentsForm />} />
-                <Route path='/components/image' element={<ComponentsImage />} />
-                <Route path='/components/list' element={<ComponentsList />} />
-                <Route path='/components/typography' element={<ComponentsTypography />} />
-              </Routes>
-            </Section>
-            <Footer />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+                  <Route path='/components' element={<ComponentsPage />} />
+                  <Route path='/components/buttons' element={<ComponentsButtons />} />
+                  <Route path='/components/form' element={<ComponentsForm />} />
+                  <Route path='/components/image' element={<ComponentsImage />} />
+                  <Route path='/components/list' element={<ComponentsList />} />
+                  <Route path='/components/typography' element={<ComponentsTypography />} />
+                </Routes>
+              </Section>
+              <Footer />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </ThemeProvider>
   )
-}
-)
+})
 
 export default App;

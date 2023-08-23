@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import { Row } from '../../my-lib/layout';
+import { Box, Col, Container, Row } from '../../my-lib/layout';
+import { Avatar, Image } from '../../my-lib/components/image';
 import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
 import { Button } from '../../my-lib/components/buttons';
 import { Theme } from '../store/theme';
-import { Switch, SwitchWrapper } from '../../my-lib/components/switcher';
+import { Swich, SwitchWrapper } from '../../my-lib/components/switcher';
 
 
 const menuItems = [
@@ -28,10 +29,11 @@ const Header = () => {
             ))
           }
         </Menu>
-        <Button >Read More</Button>
-          <SwitchWrapper w='50px' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-            <Switch />
-          </SwitchWrapper>
+        <Button>purple theme</Button>
+
+        <SwitchWrapper br='none' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
+           <Swich br='none'/>
+        </SwitchWrapper>
       </Row>
     </LHeader>
   )
