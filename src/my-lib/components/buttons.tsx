@@ -250,10 +250,10 @@ export const BtnModern = styled.a<IBtnModern>`
   `
       : p.hover == 'victoria horizontal' ? `
 	transform: translateY(-50%) translateX(-50%) rotate(90deg);
-}
   `
         : false}
-  }
+  };
+  
   &:hover{
     color: ${(p) => p.theme.fontSecondary};
     &:after{

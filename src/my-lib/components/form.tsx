@@ -15,6 +15,10 @@ interface IForm extends  IDisplay, IProportions, IBorder, IGlobal{
 
 }
 
+interface ICheckbox {
+
+}
+
 export const Input = styled.input<IInput>`
   outline: none;
 
@@ -163,4 +167,8 @@ margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
 ${(p) => p.sx}; 
+`
+
+export const CustomCheckbox = styled.input.attrs({ type: "checkbox" })<ICheckbox>`
+
 `

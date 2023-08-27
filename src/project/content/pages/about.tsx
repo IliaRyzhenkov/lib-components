@@ -1,7 +1,11 @@
+import { Box, Paper } from "../../../my-lib/layout"
+
 const About = () => {
   return (
    <>
-   About Page
+   <Paper w="100%" h="300px">
+     About
+   </Paper>
    </>
   )
 }

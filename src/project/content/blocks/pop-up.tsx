@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Col, Container, Row } from '../../../my-lib/layout';
 import { Card, CardContent, CardFooter, CardHeader } from '../../../my-lib/blocks/card';
-import { Avatar, Image } from '../../../my-lib/components/image';
+import { Image } from '../../../my-lib/components/image';
 import { H1, H3, P } from '../../../my-lib/components/typography';
 import { BtnLink, Button } from '../../../my-lib/components/buttons';
 import { Popup } from '../../../my-lib/blocks/pop-up';

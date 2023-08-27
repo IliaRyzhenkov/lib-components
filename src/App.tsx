@@ -66,7 +66,7 @@ const App = observer(() => {
             </Col>
             <Col size={10} spacing='0px' display='flex' flexDirection='column'>
               <Header />
-              <Section flex={'1'} bg='#F3F6F9' p='20px'>
+              <Section flex={'1'} p='20px'>
                 <Routes>
                   <Route path='/' element={<Home />} />
                   <Route path='/about' element={<About />} />
